@@ -3,19 +3,14 @@
  * processus - create a processus with the command store in the buffer
  * @av: array of arguments
  * @buf: buffer
- * @characters_numbers: number of characters
  *
  * Return: void
  */
-void processus(char **av, char *buf, ssize_t characters_numbers)
+void processus(char **av, char *buf)
 {
 	int status;
 	pid_t id;
 
-	av[0] = buf;
-	if (av[0])
-		av[0][characters_numbers - 1] = '\0';
-	av[1] = NULL;
 	id = fork();
 	if (id == -1)
 	{

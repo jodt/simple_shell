@@ -7,8 +7,10 @@
 int main(void)
 {
 	char *buff = NULL;
-	char *av[] = {NULL};
+	char **av = NULL;
 	ssize_t result = 1;
+	char *output = "exit";
+	int i = 0;
 
 	while (result)
 	{
@@ -18,9 +20,18 @@ int main(void)
 			free(buff);
 			exit(100);
 		}
-
-		processus(av, buff, result);
+		av = fillarguments(buff);
+		while (output[i])
+		{
+			if (output[i] != av[0][i])
+				break;
+			if (i == 3)
+				exit(1);
+			i++;
+		}
+		processus(av, buff);
 		free(buff);
+		free(av);
 	}
 	free(buff);
 	return (0);
