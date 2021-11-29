@@ -21,7 +21,8 @@ int main(void)
 			exit(100);
 		}
 		av = fillarguments(buff);
-		while (output[i])
+
+		while (output[i]) /** Exit case **/
 		{
 			if (output[i] != av[0][i])
 				break;
