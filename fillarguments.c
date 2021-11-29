@@ -11,19 +11,24 @@ char **fillarguments(char *buf)
 	char *token;
 	int i = 0, length;
 
+	if (buf == NULL)
+		return (NULL);
+
 	arr = malloc(sizeof(char *) * (number_of_words(buf) + 1));
 	if (arr == NULL)
 		exit(98);
 
 	token = strtok(buf, " ");
-
 	while (token)
 	{
 		arr[i++] = token;
 		token = strtok(NULL, " ");
 	}
-	length = _strlen(arr[i - 1]);
-	arr[i - 1][length - 1] = '\0';
+	if (i != 0)
+	{
+		length = _strlen(arr[i - 1]);
+		arr[i - 1][length - 1] = '\0';
+	}
 	arr[i] = NULL;
 	return (arr);
 }
@@ -37,6 +42,9 @@ char **fillarguments(char *buf)
 int number_of_words(char *str)
 {
 	int i = 0, etat, nm = 0;
+
+	if (str == NULL)
+		return (0);
 
 	etat = DEHORS;
 	while (str[i])

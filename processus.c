@@ -11,6 +11,9 @@ void processus(char **av, char *buf)
 	int status;
 	pid_t id;
 
+	if (buf == NULL)
+		exit(100);
+
 	id = fork();
 	if (id == -1)
 	{
