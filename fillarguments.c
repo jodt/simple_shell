@@ -12,12 +12,14 @@ char **fillarguments(char *buf, char *separator)
 	char *token;
 	int i = 0, length;
 
+  if (buf == NULL)
+		return (NULL);
+
 	arr = malloc(sizeof(char *) * (number_of_words(buf, separator) + 1));
 	if (arr == NULL)
 		exit(98);
 
 	token = strtok(buf, separator);
-
 	while (token)
 	{
 		if (token[0] == '\n')
@@ -41,6 +43,9 @@ char **fillarguments(char *buf, char *separator)
 int number_of_words(char *str, char *separator)
 {
 	int i = 0, etat, nm = 0;
+
+	if (str == NULL)
+		return (0);
 
 	etat = DEHORS;
 	while (str[i])
