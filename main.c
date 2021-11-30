@@ -20,7 +20,12 @@ int main(int argc __attribute__((unused)), char **argv)
 			exit(100);
 		}
 		av = fillarguments(buff, " ");
-		checkBuiltins(av, buff);
+		if (checkBuiltins(av, buff) != 0)
+		{
+			freememory(buff, av);
+			continue;
+		}
+
 		if (av[0][0] != '/')
 		{
 			if (!(findinthepath(av)))

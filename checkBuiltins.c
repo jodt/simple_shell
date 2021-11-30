@@ -5,18 +5,23 @@
  * @av: Argument to check
  * @buff: buffer
  *
- * Return : void
+ * Return : 0 success, 1 not found
  */
 
-void checkBuiltins(char **av, char *buff)
+int checkBuiltins(char **av, char *buff)
 {
-	if (_strcmp("env", av[0]) == 0 && _strlen(av[0]) == 3)
-		printenv();
-	if (_strcmp("exit", av[0]) == 0 && _strlen(av[0]) == 4)
+	if (*av && buff)
 	{
-		free(buff);
-		exit(100);
+		if (_strcmp("env", av[0]) == 0 && _strlen(av[0]) == 3)
+			printenv();
+		if (_strcmp("exit", av[0]) == 0 && _strlen(av[0]) == 4)
+		{
+			free(buff);
+			exit(100);
+		}
+		return (0);
 	}
+	return (1);
 }
 
 /**
