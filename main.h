@@ -9,18 +9,19 @@
 #include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <sys/stat.h>
 #include <sys/wait.h>
-
 extern char **environ;
 
-int number_of_words(char *str);
-char **fillarguments(char *buf);
+int number_of_words(char *str, char *separator);
+char **fillarguments(char *buf, char *separator);
 int prompt(char **buff);
 void processus(char **av, char *buf);
 int _strlen(char *str);
+int findinthepath(char **firstargument);
+void freememory(char *buff, char **av);
 int _strcmp(char *s1, char *s2);
 void printenv(void);
 void checkBuiltins(char **av, char *buff);
 char *_getenv(const char *name);
-
 #endif
