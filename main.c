@@ -9,8 +9,6 @@ int main(void)
 	char *buff = NULL;
 	char **av = NULL;
 	ssize_t result = 1;
-	char *output = "exit";
-	int i = 0;
 
 	while (result)
 	{
@@ -22,14 +20,8 @@ int main(void)
 		}
 		av = fillarguments(buff);
 
-		while (output[i]) /** Exit case **/
-		{
-			if (output[i] != av[0][i])
-				break;
-			if (i == 3)
-				exit(1);
-			i++;
-		}
+		checkBuiltins(av, buff);
+
 		processus(av, buff);
 		free(buff);
 		free(av);
