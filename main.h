@@ -22,6 +22,6 @@ int findinthepath(char **firstargument);
 void freememory(char *buff, char **av);
 int _strcmp(char *s1, char *s2);
 void printenv(void);
-void checkBuiltins(char **av, char *buff);
+int checkBuiltins(char **av, char *buff);
 char *_getenv(const char *name);
 #endif

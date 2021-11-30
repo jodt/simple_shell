@@ -27,9 +27,12 @@ char **fillarguments(char *buf, char *separator)
 		arr[i++] = token;
 		token = strtok(NULL, separator);
 	}
-	length = _strlen(arr[i - 1]);
-	if (arr[i - 1][length - 1] == '\n')
-		arr[i - 1][length - 1] = '\0';
+	if (i != 0)
+	{
+		length = _strlen(arr[i - 1]);
+		if (arr[i - 1][length - 1] == '\n')
+			arr[i - 1][length - 1] = '\0';
+	}
 	arr[i] = NULL;
 	return (arr);
 }
@@ -72,6 +75,8 @@ int _strlen(char *str)
 {
 	int i = 0;
 
+	if (str == NULL)
+		return (0);
 	while (str[i])
 		i++;
 	return (i);
