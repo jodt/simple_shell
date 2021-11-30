@@ -21,5 +21,6 @@ int _strlen(char *str);
 int _strcmp(char *s1, char *s2);
 void printenv(void);
 void checkBuiltins(char **av, char *buff);
+char *_getenv(const char *name);
 
 #endif

@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * builtins - Check for built in commands
- * @arg: Argument to check
- * @buff
+ * checkBuiltins - Check for built in commands
+ * @av: Argument to check
+ * @buff: buffer
  *
  * Return : void
  */
