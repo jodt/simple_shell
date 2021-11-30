@@ -17,6 +17,7 @@ int checkBuiltins(char **av, char *buff)
 		if (_strcmp("exit", av[0]) == 0 && _strlen(av[0]) == 4)
 		{
 			free(buff);
+			free(av);
 			exit(100);
 		}
 		return (0);
