@@ -12,7 +12,7 @@ char **fillarguments(char *buf, char *separator)
 	char *token;
 	int i = 0, length;
 
-  if (buf == NULL)
+	if (buf == NULL)
 		return (NULL);
 
 	arr = malloc(sizeof(char *) * (number_of_words(buf, separator) + 1));
