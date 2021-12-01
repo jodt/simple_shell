@@ -5,7 +5,7 @@
  * @av: Argument to check
  * @buff: buffer
  *
- * Return : 0 success, 1 not found
+ * Return: 0 success, 1 not found
  */
 
 int checkBuiltins(char **av, char *buff)
@@ -16,8 +16,7 @@ int checkBuiltins(char **av, char *buff)
 			printenv();
 		if (_strcmp("exit", av[0]) == 0 && _strlen(av[0]) == 4)
 		{
-			free(buff);
-			free(av);
+			freememory(buff, av);
 			exit(100);
 		}
 		return (0);
