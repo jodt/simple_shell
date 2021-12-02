@@ -19,6 +19,7 @@ char **fillarguments(char *buf, char *separator);
 int prompt(char **buff);
 void processus(char **av, char *buf);
 int _strlen(char *str);
+char *_strtok(char *string, const char *cutter);
 int findinthepath(char **firstargument);
 void freememory(char *buff, char **av);
 void freememory2(char *str1, char *str2, char *str3);
