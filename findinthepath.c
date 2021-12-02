@@ -40,9 +40,9 @@ int findinthepath(char **firstargument)
 			return (1);
 		}
 		j = 0;
-		free(dirname);
+		free_pointer(1, dirname);
 		i++;
 	}
-	free(arr_directory), free_pointer(3, str, pwd, path);
+	free_arrayofpointer(arr_directory), free_pointer(3, str, pwd, path);
 	return (0);
 }
