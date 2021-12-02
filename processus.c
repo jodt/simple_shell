@@ -3,10 +3,10 @@
  * processus - create a processus with the command store in the buffer
  * @av: array of arguments
  * @buf: buffer
- *
+ * @count: counter
  * Return: void
  */
-void processus(char **av, char *buf)
+void processus(char **av, char *buf, int count)
 {
 	int status;
 	pid_t id;
@@ -24,7 +24,9 @@ void processus(char **av, char *buf)
 		wait(&status);
 	else if ((execve(av[0], av, NULL)) == -1)
 	{
+		printf("./hsh: %d: %s: not found\n", count, av[0]);
 		free(buf);
+		free(av);
 		exit(98);
 	}
 }

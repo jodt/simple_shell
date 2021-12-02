@@ -10,10 +10,12 @@ int main(int argc __attribute__((unused)), char **argv)
 	char *buff = NULL;
 	char **av = NULL;
 	ssize_t result = 1;
+	int count = 0;
 
 	while (result)
 	{
 		result = prompt(&buff);
+		count++;
 		if (result == -1)
 		{
 			free(buff);
@@ -22,29 +24,27 @@ int main(int argc __attribute__((unused)), char **argv)
 		av = fillarguments(buff, " ");
 		if (checkBuiltins(av, buff) != 0)
 		{
-			freememory(buff, av);
+			free_pointer(1, buff), free_arrayofpointer(av);
 			continue;
 		}
-
 		if (av[0][0] != '/')
 		{
 			if (!(findinthepath(av)))
 			{
-				printf("%s: 1: %s: not found\n", argv[0], av[0]);
-				freememory(buff, av);
+				printf("%s: %d: %s: not found\n", argv[0], count, av[0]);
+				free_pointer(1, buff), free_arrayofpointer(av);
 				continue;
 			}
 			else
 			{
-				processus(av, buff);
-				free(*av);
-				freememory(buff, av);
+				processus(av, buff, count);
+				free_pointer(2, *av, buff), free_arrayofpointer(av);
 				continue;
 			}
 		}
-		processus(av, buff);
-		freememory(buff, av);
+		processus(av, buff, count);
+		free_pointer(1, buff), free_arrayofpointer(av);
 	}
-	free(buff);
+	free_pointer(1, buff);
 	return (0);
 }

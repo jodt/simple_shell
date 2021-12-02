@@ -16,7 +16,7 @@ int checkBuiltins(char **av, char *buff)
 			printenv();
 		if (_strcmp("exit", av[0]) == 0 && _strlen(av[0]) == 4)
 		{
-			freememory(buff, av);
+			free_pointer(1, buff), free_arrayofpointer(av);
 			exit(100);
 		}
 		return (0);
