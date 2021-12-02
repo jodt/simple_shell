@@ -35,16 +35,14 @@ int findinthepath(char **firstargument)
 		if (stat(dirname, &st) == 0)
 		{
 			*firstargument = strdup(dirname);
-			free(dirname);
-			free(arr_directory);
-			freememory2(str, pwd, path);
+			free_pointer(4, dirname, str, pwd, path);
+			free_arrayofpointer(arr_directory);
 			return (1);
 		}
 		j = 0;
-		free(dirname);
+		free_pointer(1, dirname);
 		i++;
 	}
-	free(arr_directory);
-	freememory2(str, pwd, path);
+	free_arrayofpointer(arr_directory), free_pointer(3, str, pwd, path);
 	return (0);
 }

@@ -19,13 +19,13 @@ char **fillarguments(char *buf, char *separator)
 	if (arr == NULL)
 		exit(98);
 
-	token = strtok(buf, separator);
+	token = _strtok(buf, separator);
 	while (token)
 	{
 		if (token[0] == '\n')
 			break;
 		arr[i++] = token;
-		token = strtok(NULL, separator);
+		token = _strtok(NULL, separator);
 	}
 	if (i != 0)
 	{

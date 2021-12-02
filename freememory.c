@@ -1,28 +1,30 @@
 #include "main.h"
 /**
- * freememory - free the memory from buffer and array of arguments
- * @buff: buffer
- * @av: array of arguments
+ * free_pointer - free the memory from buffer and array of arguments
+ * @n: number of arguments
  *
- * Return: void
+ * Return: void;
  */
-void freememory(char *buff, char **av)
+void free_pointer(const unsigned int n, ...)
 {
-	free(buff);
-	free(av);
+	va_list arglist;
+	unsigned int i;
+	char *arg;
+
+	va_start(arglist, n);
+	for (i = 0; i < n; i++)
+	{
+		arg = va_arg(arglist, char *);
+		free(arg);
+	}
 }
 
 /**
- * freememory2 - free the memory from buffer and array of arguments
- * @str1: string's pointer
- * @str2: string's pointer
- * @str3: string's pointer
- *
+ * free_arrayofpointer - free the memory of pointer array
+ * @arr: pointer array
  * Return: void
  */
-void freememory2(char *str1, char *str2, char *str3)
+void free_arrayofpointer(char **arr)
 {
-	free(str1);
-	free(str2);
-	free(str3);
+	free(arr);
 }
