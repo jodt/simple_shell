@@ -19,6 +19,8 @@ int findinthepath(char **firstargument)
 		_strcpy(str, pwd);
 		_strcat(str, path);
 	}
+	else if (_strstr(path, "::") != NULL)
+		str = updatethepath(path, pwd);
 	else
 	{
 		str = malloc(sizeof(char) * (strlen(path)) + 1);

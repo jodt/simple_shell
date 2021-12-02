@@ -31,4 +31,6 @@ char *_getenv(const char *name);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
+char *updatethepath(char *path, char *pwd);
+char *_strstr(char *haystack, char *needle);
 #endif

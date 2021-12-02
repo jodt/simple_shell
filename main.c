@@ -18,7 +18,7 @@ int main(int argc __attribute__((unused)), char **argv)
 		count++;
 		if (result == -1)
 		{
-			free_pointer(1,buff);
+			free_pointer(1, buff);
 			exit(100);
 		}
 		av = fillarguments(buff, " ");
