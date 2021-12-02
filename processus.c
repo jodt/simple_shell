@@ -17,7 +17,7 @@ void processus(char **av, char *buf, int count)
 	id = fork();
 	if (id == -1)
 	{
-		free_pointer(1,buf);
+		free_pointer(1, buf);
 		exit(99);
 	}
 	if (id != 0)
@@ -25,7 +25,7 @@ void processus(char **av, char *buf, int count)
 	else if ((execve(av[0], av, NULL)) == -1)
 	{
 		printf("./hsh: %d: %s: not found\n", count, av[0]);
-		free_pointer(1,buf);
+		free_pointer(1, buf);
 		free_arrayofpointer(av);
 		exit(98);
 	}

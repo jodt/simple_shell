@@ -1,0 +1,34 @@
+#include "main.h"
+/**
+ * updatethepath - update the path with current directory
+ *
+ * @path: path
+ * @pwd: working directory
+ *
+ * Return: path updated
+ */
+char *updatethepath(char *path, char *pwd)
+{
+	int i = 0, j = 0;
+	char *str = malloc(sizeof(char) * (_strlen(pwd) + _strlen(path) + 1));
+
+	while (path[i])
+	{
+
+		if (path[i] == ':' && path[i + 1] == ':')
+		{
+			str[i++] = ':';
+			while (pwd[j])
+			{
+				str[i] = pwd[j];
+				i++, j++;
+			}
+			str[i] = ':';
+		}
+		else
+			str[i] = path[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
