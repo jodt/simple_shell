@@ -72,14 +72,3 @@ char *_strtok(char *string, const char *cutter)
 
 	return (firstTok);
 }
-
-/**
- * main - for function work to supr
- *
- * Return: nothing
- */
-
-int main(void)
-{
-	;
-}
