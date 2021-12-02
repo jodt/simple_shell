@@ -16,4 +16,5 @@ char **fillarguments(char *buf);
 int prompt(char **buff);
 void processus(char **av, char *buf);
 int _strlen(char *str);
+char *_strtok(char *string, const char *cutter);
 #endif
