@@ -10,8 +10,13 @@
 char *updatethepath(char *path, char *pwd)
 {
 	int i = 0, j = 0, k = 0;
-	char *str = malloc(sizeof(char) * (_strlen(pwd) + _strlen(path) + 1));
+	char *str;
 
+	if (path == NULL && pwd == NULL)
+		return (NULL);
+	str = malloc(sizeof(char) * (_strlen(pwd) + _strlen(path) + 1));
+	if (str == NULL)
+		return (NULL);
 	while (path[i])
 	{
 		if (path[i] == ':' && path[i + 1] == ':')

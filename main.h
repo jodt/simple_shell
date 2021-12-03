@@ -22,7 +22,7 @@ int prompt(char **buff);
 void processus(char **av, char *buf, int count);
 int _strlen(char *str);
 char *_strtok(char *string, const char *cutter);
-int findinthepath(char **firstargument);
+char *findinthepath(char **firstargument);
 void free_pointer(const unsigned int n, ...);
 void free_arrayofpointer(char **arr);
 int _strcmp(char *s1, char *s2);
