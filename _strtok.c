@@ -35,33 +35,29 @@ char *_strtok(char *string, const char *cutter)
 	static char *secondTok;
 	long int i;
 
+	if (string == NULL && cutter == NULL)
+		return (NULL);
 	if (string != NULL)
 		secondTok = string;
-
 	firstTok = secondTok;
 	if (firstTok == NULL)
 		return (NULL);
-
 	for (i = 0; secondTok[i] != 0; i++)
 	{
 		if (equal(secondTok[i], cutter) == 1)
 			break;
 	}
-
 	if (secondTok[i] == 0 || secondTok[i] == 35)
 	{
 		return (NULL);
 	}
-
 	firstTok = secondTok + i;
 	secondTok = firstTok;
-
 	for (i = 0; secondTok[i] != 0; i++)
 	{
 		if (equal(secondTok[i], cutter) == 0)
 			break;
 	}
-
 	if (secondTok[i] == 0)
 		secondTok = NULL;
 	else
@@ -69,6 +65,5 @@ char *_strtok(char *string, const char *cutter)
 		secondTok[i] = 0;
 		secondTok += i + 1;
 	}
-
 	return (firstTok);
 }
