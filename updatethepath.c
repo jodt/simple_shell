@@ -10,7 +10,7 @@
 char *updatethepath(char *path, char *pwd)
 {
 	int i = 0, j = 0, k = 0;
-	char *str = malloc(sizeof(char) * (strlen(pwd) + strlen(path) + 1));
+	char *str = malloc(sizeof(char) * (_strlen(pwd) + _strlen(path) + 1));
 
 	while (path[i])
 	{

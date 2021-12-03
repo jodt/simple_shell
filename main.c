@@ -31,7 +31,7 @@ int main(int argc __attribute__((unused)), char **argv)
 		{
 			if (!(findinthepath(av)))
 			{
-				printf("%s: %d: %s: not found\n", argv[0], count, av[0]);
+				_printf("%s: %d: %s: not found\n", argv[0], count, av[0]);
 				free_pointer(1, buff), free_arrayofpointer(av);
 				continue;
 			}

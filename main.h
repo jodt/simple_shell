@@ -13,6 +13,7 @@
 #include <sys/wait.h>
 #include <stdarg.h>
 #include <signal.h>
+#include <inttypes.h>
 extern char **environ;
 
 int number_of_words(char *str, char *separator);
@@ -33,4 +34,39 @@ char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
 char *updatethepath(char *path, char *pwd);
 char *_strstr(char *haystack, char *needle);
+
+/* printf */
+#define BUFSIZE 1024
+/**
+ * struct type - structure type
+ * @c: character to check
+ * @ptr_f: pointer of function
+ */
+typedef struct type
+{
+	char c;
+	int (*ptr_f)(va_list);
+} type;
+int _printf(const char *format, ...);
+int _prints(va_list);
+int _printc(va_list);
+int _printd(va_list);
+int write_integer(int);
+int _printb(va_list);
+int _printu(va_list);
+int write_uninteger(unsigned int);
+int _printb(va_list);
+int _printo(va_list);
+int write_octal(unsigned int);
+int (*get_specifier_func(char))(va_list);
+int _printx(va_list);
+int write_x(unsigned long int);
+int _printX(va_list);
+int write_X(unsigned int);
+int _printp(va_list);
+int _printS(va_list);
+int _printR(va_list);
+int _printr(va_list);
+int write_reverse(char *);
+int checkSpecifier(const char *format, int i, va_list arglist);
 #endif

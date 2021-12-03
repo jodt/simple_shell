@@ -14,7 +14,7 @@ char *_getenv(const char *name)
 	if (name == NULL || !name[i])
 		return (NULL);
 
-	length = strlen(name);
+	length = _strlen(name);
 	while (*(environ + i))
 	{
 		y = 0;

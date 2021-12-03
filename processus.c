@@ -24,7 +24,7 @@ void processus(char **av, char *buf, int count)
 		wait(&status);
 	else if ((execve(av[0], av, NULL)) == -1)
 	{
-		printf("./hsh: %d: %s: not found\n", count, av[0]);
+		_printf("./hsh: %d: %s: not found\n", count, av[0]);
 		free_pointer(1, buf);
 		free_arrayofpointer(av);
 		exit(98);
