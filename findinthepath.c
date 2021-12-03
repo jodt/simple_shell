@@ -36,7 +36,7 @@ int findinthepath(char **firstargument)
 		_strcat(_strcat(dirname, "/"), firstargument[0]);
 		if (stat(dirname, &st) == 0)
 		{
-			*firstargument = strdup(dirname);
+			*firstargument = _strdup(dirname);
 			free_pointer(4, dirname, str, pwd, path);
 			free_arrayofpointer(arr_directory);
 			return (1);

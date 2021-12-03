@@ -12,7 +12,7 @@ int prompt(char **buff)
 	size_t n = 0;
 
 	if (isatty(STDIN_FILENO) == 1)
-		printf("($) ");
+		_printf("($) ");
 	numbers_characters = getline(buff, &n, stdin);
 
 	return (numbers_characters);
