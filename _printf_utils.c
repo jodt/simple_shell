@@ -1,6 +1,32 @@
 #include "main.h"
 
-int _strlen(char *str);
+/**
+  * _prints - Handling the %s format of printf
+  * @arg: Current arg.
+  *
+  * Return: Full string
+  */
+
+int _prints(va_list arg)
+{
+	int i;
+	char *str = va_arg(arg, char *);
+
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+
+	return (i);
+}
 
 /**
   * _printS - Handling the %S format of printf
@@ -43,4 +69,15 @@ int _printS(va_list arg)
 		i++;
 	}
 	return (count);
+}
+/**
+ * _printc - print a character
+ * @arglist: list of arguments
+ * Return: number of character printed
+ */
+int _printc(va_list arglist)
+{
+	int c = va_arg(arglist, int);
+
+	return (write(1, &c, 1));
 }
