@@ -10,11 +10,12 @@
 char *_getenv(const char *name)
 {
 	int i = 0, y, count = 0, length;
+	char *copy = (char *)name;
 
 	if (name == NULL || !name[i])
 		return (NULL);
 
-	length = _strlen(name);
+	length = _strlen(copy);
 	while (*(environ + i))
 	{
 		y = 0;
