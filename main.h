@@ -22,7 +22,7 @@ int prompt(char **buff);
 void processus(char **av, char *buf, int count);
 int _strlen(char *str);
 char *_strtok(char *string, const char *cutter);
-char *findinthepath(char **firstargument);
+char *findinthepath(char **firstarg);
 void free_pointer(const unsigned int n, ...);
 void free_arrayofpointer(char **arr);
 int _strcmp(char *s1, char *s2);
@@ -34,6 +34,7 @@ char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
 char *updatethepath(char *path, char *pwd);
 char *_strstr(char *haystack, char *needle);
+char *checkifworkingdirectory(char **pwd, char **path);
 
 /* printf */
 #define BUFSIZE 1024
