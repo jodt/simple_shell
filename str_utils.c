@@ -75,7 +75,7 @@ int number_of_words(char *str, char *separator)
 	etat = DEHORS;
 	while (str[i])
 	{
-		if (str[i] == separator[0])
+		if (str[i] == separator[0] || str[i] == separator[1])
 			etat = DEHORS;
 		else if (etat == DEHORS && str[i] != '\n')
 		{
