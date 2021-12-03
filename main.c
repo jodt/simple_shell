@@ -21,7 +21,7 @@ int main(int argc __attribute__((unused)), char **argv)
 			free_pointer(1, buff);
 			exit(100);
 		}
-		av = fillarguments(buff, " ");
+		av = fillarguments(buff, " \t");
 		if (checkBuiltins(av, buff) != 0)
 		{
 			free_pointer(1, buff), free_arrayofpointer(av);
