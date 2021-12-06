@@ -10,7 +10,7 @@
 int _setenv(const char *name, const char *value, int overwrite)
 {
 	int i = 0, j = 0;
-	char *variable, **environ;
+	char *variable;
 	int length = _strlen((char *)name) + _strlen((char *)value) + 1;
 
 	if (name == NULL || value == NULL || i < 0)
