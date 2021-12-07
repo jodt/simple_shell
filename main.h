@@ -3,6 +3,7 @@
 
 #define DEHORS 0
 #define DEDANS 1
+#define BUF 1000
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -73,4 +74,5 @@ int _printR(va_list);
 int _printr(va_list);
 int write_reverse(char *);
 int checkSpecifier(const char *format, int i, va_list arglist);
+int _cd(char **av);
 #endif
