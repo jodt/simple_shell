@@ -7,43 +7,11 @@
  */
 int main(int argc __attribute__((unused)), char **argv)
 {
-	char *buff = NULL, **av = NULL;
-	ssize_t result = 1;
-	int count = 0;
 
 	signal(SIGINT, handler);
-	while (result)
+	while (1)
 	{
-		result = prompt(&buff), count++;
-		if (result == -1)
-		{
-			free_pointer(1, buff);
-			exit(100);
-		}
-		av = fillarguments(buff, " \t");
-		if (av[0][0] != '/')
-		{
-			if (checkBuiltins(av, buff) == 0)
-			{
-				free_pointer(1, buff), free_arrayofpointer(av);
-				continue;
-			}
-			if (!(findinthepath(av)))
-			{
-				printerror(argv, count, av);
-				free_pointer(1, buff), free_arrayofpointer(av);
-				continue;
-			}
-			else
-			{
-				processus(argv, av, buff, count);
-				free_pointer(2, *av, buff), free_arrayofpointer(av);
-				continue;
-			}
-		}
-		processus(argv, av, buff, count);
-		free_pointer(1, buff), free_arrayofpointer(av);
+		shell_loop(argv);
 	}
-	free_pointer(1, buff);
 	return (0);
 }
