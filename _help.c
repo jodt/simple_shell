@@ -10,7 +10,9 @@
 int _help(char **av)
 {
 	if (av[2])
-		write(1, "too many arguments\n", 20);
+		write(2, "too many arguments\n", 20);
+	if (av[1] == NULL)
+		write(2, "Too few arguments\n", 19);
 	else
 	{
 		if (_strcmp("cd", av[1]) == 0)
@@ -32,11 +34,11 @@ int _help(char **av)
 		}
 		else if (_strcmp("alias", av[1]) == 0)
 		{
-			write(1, "alias command is used for define or display aliases.", 53);
-			write(1, "commands.\n", 70);
+			write(1, "alias command is used for define or display aliases ", 53);
+			write(1, "commands.\n", 11);
 		}
 		else
-			write(1, "Command not found\n", 20);
+			write(2, "Command not found\n", 20);
 	}
 	return (0);
 }
