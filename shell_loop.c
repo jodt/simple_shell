@@ -44,7 +44,8 @@ int shell_loop(char **argv, int count)
 			return (0);
 		}
 	}
-	processus(argv, av, buff, count);
+	if (processus(argv, av, buff, count) != 0)
+		return (2);
 	free_pointer(1, buff), free_arrayofpointer(av);
 	return (0);
 }
