@@ -6,7 +6,7 @@
  * @count: counter
  * Return: void
  */
-void processus(char **av, char *buf, int count)
+void processus(char **argv, char **av, char *buf, int count)
 {
 	int status;
 	pid_t id;
@@ -24,7 +24,7 @@ void processus(char **av, char *buf, int count)
 		wait(&status);
 	else if ((execve(av[0], av, NULL)) == -1)
 	{
-		_printf("./hsh: %d: %s: not found\n", count, av[0]);
+		printerror(argv, count, av);
 		free_pointer(1, buf);
 		free_arrayofpointer(av);
 		exit(98);
