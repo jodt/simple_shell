@@ -28,7 +28,7 @@ int processus(char **argv, char **av, char *buf, int count)
 		printerror(argv, count, av);
 		free_pointer(1, buf);
 		free_arrayofpointer(av);
-		return (1);
+		_exit(98);
 	}
 	return (status);
 }
