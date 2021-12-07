@@ -7,12 +7,15 @@
  */
 int main(int argc __attribute__((unused)), char **argv)
 {
-	int count = 0;
+	int count = 0, retour;
 
 	signal(SIGINT, handler);
 	while (1)
 	{
-		if (shell_loop(argv, count) != 0)
+		retour = shell_loop(argv, count);
+		if (retour == 2)
+			return (127);
+		if (retour != 0)
 			break;
 		count++;
 	}
