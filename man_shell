@@ -5,7 +5,12 @@ Simple Shell \- a new Simple Shell created for an exercice utilisable in C langu
 .SH SYNOPSIS
 .B ./hsh \fR[OPTION]... [FILE]...
 .SH DESCRIPTION
-.B ./hsh \fR\- It's executing the shell programme, you have jsute to type your commande.
+.B ./hsh \fR\- It\'s executing the shell programme, you have jsute to type your commande.
+
+To execute it you have to execute this commande : gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+After you can do ./hsh to enter in the Simple Shell or do "cat test_ls_2 | ./hsh" to execute it in the terminal.
+
 .SH EXEMPLES
 
 .SH BUGS
