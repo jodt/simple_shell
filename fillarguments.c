@@ -32,7 +32,6 @@ char **fillarguments(char *buf, char *separator)
 		length = _strlen(arr[i - 1]);
 		if (arr[i - 1][length - 1] == '\n')
 			arr[i - 1][length - 1] = '\0';
-		arr[i - 1][length] = '\n';
 	}
 	arr[i] = NULL;
 	return (arr);
