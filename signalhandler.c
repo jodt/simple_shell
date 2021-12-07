@@ -1,9 +1,9 @@
 #include "main.h"
-
 /**
- * handler - handler
+ * handler - handling ctrl-c signal
+ *
+ * @sig: number of the signal
  */
-
 void handler(int sig __attribute__((unused)))
 {
 	write(1, "\n($) ", 5);

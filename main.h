@@ -20,7 +20,7 @@ extern char **environ;
 int number_of_words(char *str, char *separator);
 char **fillarguments(char *buf, char *separator);
 int prompt(char **buff);
-void processus(char **av, char *buf, int count);
+void processus(char **argv, char **av, char *buf, int count);
 int _strlen(char *str);
 char *_strtok(char *string, const char *cutter);
 char *findinthepath(char **firstarg);
@@ -36,8 +36,10 @@ char *_strdup(char *str);
 char *updatethepath(char *path, char *pwd);
 char *_strstr(char *haystack, char *needle);
 char *checkifworkingdirectory(char **pwd, char **path);
-void handler();
-
+void handler(int sig __attribute__((unused)));
+int _cd(char **av);
+void printerror(char **argv, int count, char **av);
+int _setenv(const char *name, const char *value);
 /* printf */
 #define BUFSIZE 1024
 /**
