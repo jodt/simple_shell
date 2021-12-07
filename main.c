@@ -7,11 +7,13 @@
  */
 int main(int argc __attribute__((unused)), char **argv)
 {
+	int count = 0;
 
 	signal(SIGINT, handler);
 	while (1)
 	{
-		shell_loop(argv);
+		shell_loop(argv, count);
+		count++;
 	}
 	return (0);
 }
