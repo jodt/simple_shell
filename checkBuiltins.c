@@ -19,6 +19,10 @@ int checkBuiltins(char **av, char *buff)
 			free_pointer(1, buff), free_arrayofpointer(av);
 			exit(100);
 		}
+		if (_strcmp("cd", av[0]) == 0 && _strlen(av[0]) == 2)
+		{
+			_cd(av);
+		}
 		return (0);
 	}
 	return (1);
