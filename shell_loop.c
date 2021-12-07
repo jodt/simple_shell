@@ -2,13 +2,14 @@
 /**
  * shell_loop - shell program
  * @argv: name of executable
+ * @count: counter
  *
  * Return: 0
  */
-int shell_loop(char **argv)
+int shell_loop(char **argv, int count)
 {
 	char *buff = NULL, **av = NULL;
-	ssize_t result = 1, count = 0;
+	ssize_t result = 1;
 
 	result = prompt(&buff), count++;
 	if (result == -1)

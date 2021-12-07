@@ -40,7 +40,7 @@ void handler(int sig __attribute__((unused)));
 int _cd(char **av);
 void printerror(char **argv, int count, char **av);
 int _setenv(const char *name, const char *value);
-int shell_loop(char **argv);
+int shell_loop(char **argv, int count);
 /* printf */
 #define BUFSIZE 1024
 /**
