@@ -17,6 +17,8 @@ int shell_loop(char **argv, int count)
 		free_pointer(1, buff);
 		return (1);
 	}
+	if (result == 2)
+		return (1);
 	av = fillarguments(buff, " \t");
 	if (av[0] == NULL)
 	{
