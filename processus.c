@@ -7,7 +7,7 @@
  * @count: counter
  * Return: void
  */
-void processus(char **argv, char **av, char *buf, int count)
+int processus(char **argv, char **av, char *buf, int count)
 {
 	int status;
 	pid_t id;
@@ -28,6 +28,7 @@ void processus(char **argv, char **av, char *buf, int count)
 		printerror(argv, count, av);
 		free_pointer(1, buf);
 		free_arrayofpointer(av);
-		exit(98);
+		_exit(98);
 	}
+	return (status);
 }
