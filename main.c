@@ -12,7 +12,7 @@ int main(int argc __attribute__((unused)), char **argv)
 	signal(SIGINT, handler);
 	while (1)
 	{
-		if (shell_loop(argv, count) == 1)
+		if (shell_loop(argv, count) != 0)
 			break;
 		count++;
 	}
