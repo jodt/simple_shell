@@ -1,0 +1,16 @@
+.\" Manpage for Simple Shell.
+.TH man 1 "11 November 2021" "1.0" "Simple Shell man page"
+.SH NAME
+Simple Shell \- a new Simple Shell created for an exercice utilisable in C language.
+.SH SYNOPSIS
+.B ./hsh \fR[OPTION]... [FILE]...
+.SH DESCRIPTION
+.B ./hsh \fR\- It's executing the shell programme, you have jsute to type your commande.
+.SH EXEMPLES
+
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+.SS Joel Dumortier
+.SS Philippe Willot
+.SS Colas Renard
