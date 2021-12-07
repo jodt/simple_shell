@@ -20,7 +20,7 @@ int _cd(char **av)
 		chdir("/home/vagrant");
 		setenv("PWD", getcwd(buff, sizeof(char) * 1024), 1);
 	}
-	else if (strcmp(av[1], hyphen) == 0)
+	else if (_strcmp(av[1], hyphen) == 0)
 	{
 		setenv("OLDPWD", _getenv("PWD"), 1);
 		chdir("..");
