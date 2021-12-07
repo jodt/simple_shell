@@ -41,6 +41,7 @@ int _cd(char **av);
 void printerror(char **argv, int count, char **av);
 int _setenv(const char *name, const char *value);
 int shell_loop(char **argv, int count);
+int write_integer_error(int number);
 /* printf */
 #define BUFSIZE 1024
 /**
