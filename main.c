@@ -7,8 +7,7 @@
  */
 int main(int argc __attribute__((unused)), char **argv)
 {
-	char *buff = NULL;
-	char **av = NULL;
+	char *buff = NULL, **av = NULL;
 	ssize_t result = 1;
 	int count = 0;
 
