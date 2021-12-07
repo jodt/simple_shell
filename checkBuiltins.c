@@ -10,7 +10,8 @@
 
 int checkBuiltins(char **av, char *buff)
 {
-	if (av && buff)
+
+	if (av && *av && buff)
 	{
 		if (_strcmp("env", av[0]) == 0 && _strlen(av[0]) == 3)
 		{

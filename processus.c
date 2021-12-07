@@ -1,6 +1,7 @@
 #include "main.h"
 /**
  * processus - create a processus with the command store in the buffer
+ * @argv: name of the shell
  * @av: array of arguments
  * @buf: buffer
  * @count: counter
