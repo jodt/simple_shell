@@ -35,6 +35,7 @@ char *_strdup(char *str);
 char *updatethepath(char *path, char *pwd);
 char *_strstr(char *haystack, char *needle);
 char *checkifworkingdirectory(char **pwd, char **path);
+void handler();
 
 /* printf */
 #define BUFSIZE 1024
