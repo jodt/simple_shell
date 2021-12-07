@@ -19,7 +19,7 @@ int processus(char **argv, char **av, char *buf, int count)
 	if (id == -1)
 	{
 		free_pointer(1, buf);
-		exit(99);
+		return (1);
 	}
 	if (id != 0)
 		wait(&status);
@@ -28,7 +28,7 @@ int processus(char **argv, char **av, char *buf, int count)
 		printerror(argv, count, av);
 		free_pointer(1, buf);
 		free_arrayofpointer(av);
-		_exit(98);
+		return (1);
 	}
 	return (status);
 }
