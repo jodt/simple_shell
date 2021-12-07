@@ -12,7 +12,8 @@ int main(int argc __attribute__((unused)), char **argv)
 	signal(SIGINT, handler);
 	while (1)
 	{
-		shell_loop(argv, count);
+		if (shell_loop(argv, count) == 1)
+			break;
 		count++;
 	}
 	return (0);
