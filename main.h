@@ -20,7 +20,7 @@ extern char **environ;
 int number_of_words(char *str, char *separator);
 char **fillarguments(char *buf, char *separator);
 int prompt(char **buff);
-void processus(char **argv, char **av, char *buf, int count);
+int processus(char **argv, char **av, char *buf, int count);
 int _strlen(char *str);
 char *_strtok(char *string, const char *cutter);
 char *findinthepath(char **firstarg);
