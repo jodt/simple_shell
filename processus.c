@@ -7,7 +7,7 @@
  * @count: counter
  * Return: void
  */
-int processus(char **argv, char **av, char *buf, int count)
+int processus(char **argv __attribute__((unused)), char **av, char *buf, int count __attribute__((unused)))
 {
 	int status;
 	pid_t id;
@@ -25,7 +25,7 @@ int processus(char **argv, char **av, char *buf, int count)
 		wait(&status);
 	else if ((execve(av[0], av, NULL)) == -1)
 	{
-		printerror(argv, count, av);
+		perror("./hsh");
 		free_pointer(1, buf);
 		free_arrayofpointer(av);
 		_exit(98);
