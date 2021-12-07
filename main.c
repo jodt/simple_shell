@@ -12,6 +12,7 @@ int main(int argc __attribute__((unused)), char **argv)
 	ssize_t result = 1;
 	int count = 0;
 
+	signal(SIGINT, handler);
 	while (result)
 	{
 		result = prompt(&buff);
