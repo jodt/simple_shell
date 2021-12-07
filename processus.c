@@ -13,7 +13,7 @@ int processus(char **argv, char **av, char *buf, int count)
 	pid_t id;
 
 	if (buf == NULL)
-		return;
+		return (-1);
 
 	id = fork();
 	if (id == -1)
