@@ -35,6 +35,11 @@ int checkBuiltins(char **av, char *buff)
 			_echo(av);
 			return (0);
 		}
+		else if (_strcmp("setenv", av[0]) == 0 && _strlen(av[0]) == 6)
+		{
+			_setenv(av[1], av[2]);
+			return (0);
+		}
 	}
 	return (1);
 }

@@ -40,9 +40,10 @@ char *checkifworkingdirectory(char **pwd, char **path);
 void handler(int sig __attribute__((unused)));
 int _cd(char **av);
 void printerror(char **argv, int count, char **av);
-int _setenv(const char *name, const char *value);
+int _setenv(char *name, char *value);
 int shell_loop(char **argv, int count);
 int write_integer_error(int number);
+
 /* printf */
 #define BUFSIZE 1024
 /**
