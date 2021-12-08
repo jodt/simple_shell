@@ -25,7 +25,7 @@ int shell_loop(char **argv, int count)
 	}
 	if (av[0][0] != '/')
 	{
-		retour = checkBuiltins(av, buff);
+		retour = checkBuiltins(av, buff, count);
 		if (retour == 0 || retour == 2)
 		{
 			free_pointer(1, buff), free_arrayofpointer(av);
