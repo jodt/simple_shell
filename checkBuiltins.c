@@ -19,11 +19,7 @@ int checkBuiltins(char **av, char *buff, int count)
 			return (0);
 		}
 		else if (_strcmp("exit", av[0]) == 0 && _strlen(av[0]) == 4)
-		{
-			if (exit_status(av[1]) == 2)
-				return (2);
-		}
-
+			return (2);
 		else if (_strcmp("cd", av[0]) == 0 && _strlen(av[0]) == 2)
 		{
 			_cd(av, count);
