@@ -27,8 +27,6 @@ int _setenv(char *name, char *value)
 	if (value)
 		_strcat(variable, value);
 
-	printf("%s\n", variable);
-
 	while (environ[i])
 	{
 		j = 0;
