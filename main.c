@@ -13,10 +13,8 @@ int main(int argc __attribute__((unused)), char **argv)
 	signal(SIGINT, handler);
 	while (1)
 	{
-		if (retour == 2)
-			break;
 		retour = shell_loop(argv, count);
-		if (retour != 0)
+		if (retour == 2)
 		{
 			id = fork();
 			if (id == -1)
@@ -32,6 +30,8 @@ int main(int argc __attribute__((unused)), char **argv)
 			else
 				continue;
 		}
+		if (retour != 0)
+			break;
 		count++;
 	}
 	return (0);
