@@ -7,19 +7,28 @@
  *
  */
 
-int exit_status(char **av, char *buff __attribute__((unused)))
+int exit_status(char *av)
 {
 	int exit_status = 0;
 
-	if (av[1])
-		exit_status = atoi(av[1]);
-	else
+	if (!av)
 		return (2);
 
-	if (av[1] && exit_status > 0 && exit_status <= 2147483647)
-		exit(exit_status);
+	exit_status = atoi(av);
+	if (av && exit_status > 0 && exit_status <= 2147483647)
+	{
+		printf("%d\n", exit_status);
+		_exit(exit_status);
+	}
 	else
-		write(2, "Invalid syntax\n", 15);
+	{
+		if (atoi(av) != 0)
+		{
+			write(2, "1: exit: Illegal number:", 24);
+			write(2, &exit_status, 25);
+			write(2, "\n", 1);
+		}
+	}
 
 	return (0);
 }
