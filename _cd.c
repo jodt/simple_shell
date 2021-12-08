@@ -12,7 +12,7 @@ int _cd(char **av)
 	char hyphen[] = "-";
 	char *buff = malloc(sizeof(char) * 1024);
 
-	if (av[1] == NULL)
+	if (av[1] == NULL || av[1] == "~")
 	{
 		setenv("OLDPWD", _getenv("PWD"), 1);
 		chdir("/home/vagrant");
@@ -20,8 +20,10 @@ int _cd(char **av)
 	}
 	else if (_strcmp(av[1], hyphen) == 0)
 	{
+		write(1, _getenv("OLDPWD"), _strlen(_getenv("OLDPWD")));
+		_printf("\n");
+		chdir(_getenv("OLDPWD"));
 		setenv("OLDPWD", _getenv("PWD"), 1);
-		chdir("..");
 		setenv("PWD", getcwd(buff, sizeof(char) * 1024), 1);
 	}
 	else if (av[1] != NULL && av[1] != hyphen)
