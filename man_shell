@@ -19,6 +19,11 @@ It\'s show the ls command use by the passive way
 .B in the ./hsh ls -l
 
 It\'s did the ls command with -l flag
+
+.B
+
+It\'s did the
+
 .SH BUGS
 No known bugs.
 .SH AUTHOR

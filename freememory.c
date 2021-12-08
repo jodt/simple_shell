@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * free_pointer - free the memory from buffer and array of arguments
+ * free_p - free the memory from buffer and array of arguments
  * @n: number of arguments
  *
  * Return: void;
  */
-void free_pointer(const unsigned int n, ...)
+void free_p(const unsigned int n, ...)
 {
 	va_list arglist;
 	unsigned int i;
@@ -20,11 +20,11 @@ void free_pointer(const unsigned int n, ...)
 }
 
 /**
- * free_arrayofpointer - free the memory of pointer array
+ * free_a - free the memory of pointer array
  * @arr: pointer array
  * Return: void
  */
-void free_arrayofpointer(char **arr)
+void free_a(char **arr)
 {
 	free(arr);
 }
