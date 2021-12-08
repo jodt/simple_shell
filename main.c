@@ -14,7 +14,7 @@ int main(int argc __attribute__((unused)), char **argv)
 	while (1)
 	{
 		retour = shell_loop(argv, count);
-		if (retour == 2 || retour == 3)
+		if (retour == 2)
 		{
 			id = fork();
 			if (id == -1)
@@ -25,8 +25,6 @@ int main(int argc __attribute__((unused)), char **argv)
 			if (id != 0)
 			{
 				wait(&status);
-				if (retour == 3)
-					return (2);
 				return (127);
 			}
 			else

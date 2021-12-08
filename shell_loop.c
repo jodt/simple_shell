@@ -39,16 +39,9 @@ int shell_loop(char **argv, int count)
 		}
 		else
 		{
-			if (processus(argv, av, buff, count) != 0)
-			{
-				free_pointer(2, *av, buff), free_arrayofpointer(av);
-				return (3);
-			}
-			else
-			{
-				free_pointer(2, *av, buff), free_arrayofpointer(av);
-				return (0);
-			}
+			processus(argv, av, buff, count);
+			free_pointer(2, *av, buff), free_arrayofpointer(av);
+			return (0);
 		}
 	}
 	if (processus(argv, av, buff, count) != 0)
