@@ -17,6 +17,11 @@ int shell_loop(char **argv, int count)
 		free_pointer(1, buff);
 		return (1);
 	}
+	if (_strlen(buff) >= 256)
+	{
+		perror("Error");
+		return (0);
+	}
 	av = fillarguments(buff, " \t");
 	if (av[0] == NULL)
 	{
