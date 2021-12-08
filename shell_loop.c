@@ -8,15 +8,14 @@
 int shell_loop(char **argv, int count)
 {
 	char *buff = NULL, **av = NULL;
-	ssize_t result = 1, retour;
+	ssize_t retour;
 
-	result = prompt(&buff), count++;
-	if (result == -1)
+	if (prompt(&buff) == -1)
 	{
 		free_p(1, buff);
 		return (1);
 	}
-	av = fillarguments(buff, " \t");
+	av = fillarguments(buff, " \t"), count++;
 	if (av[0] == NULL)
 	{
 		free_p(1, buff), free_a(av);
@@ -43,6 +42,7 @@ int shell_loop(char **argv, int count)
 	}
 	if (processus(argv, av, buff, count) != 0)
 	{
+		free_p(1, buff), free_a(av);
 		return (2);
 	}
 	free_p(1, buff), free_a(av);
