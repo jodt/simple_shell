@@ -4,7 +4,7 @@
  * checkBuiltins - Check for built in commands
  * @av: Argument to check
  * @buff: buffer
- *
+ * @count: count
  * Return: 0 success, 1 not found
  */
 
