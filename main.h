@@ -15,6 +15,7 @@
 #include <stdarg.h>
 #include <signal.h>
 #include <inttypes.h>
+#include <errno.h>
 extern char **environ;
 
 int number_of_words(char *str, char *separator);
