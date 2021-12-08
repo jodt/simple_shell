@@ -1,5 +1,11 @@
 #include "main.h"
-
+/**
+ * _echo - function echo
+ *
+ * @av: list of arguments
+ *
+ * Return: 0
+ */
 int _echo(char **av)
 {
 	int pid;

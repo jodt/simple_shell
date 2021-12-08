@@ -45,7 +45,10 @@ int shell_loop(char **argv, int count)
 		}
 	}
 	if (processus(argv, av, buff, count) != 0)
+	{
+		free_pointer(1, buff), free_arrayofpointer(av);
 		return (2);
+	}
 	free_pointer(1, buff), free_arrayofpointer(av);
 	return (0);
 }
