@@ -18,7 +18,7 @@ int processus(char **argv, char **av, char *buf, int count)
 	id = fork();
 	if (id == -1)
 	{
-		free_pointer(1, buf);
+		free_p(1, buf);
 		return (1);
 	}
 	if (id != 0)
@@ -26,8 +26,8 @@ int processus(char **argv, char **av, char *buf, int count)
 	else if ((execve(av[0], av, NULL)) == -1)
 	{
 		printerror(argv, count, av);
-		free_pointer(1, buf);
-		free_arrayofpointer(av);
+		free_p(1, buf);
+		free_a(av);
 		_exit(98);
 	}
 	return (status);

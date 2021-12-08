@@ -30,7 +30,7 @@ char *findinthepath(char **firstarg)
 		dirname = malloc(sizeof(char) * (lengthdirname + 2));
 		if (dirname == NULL)
 		{
-			free_pointer(3, path, pwd, str), free_arrayofpointer(arr_dir);
+			free_p(3, path, pwd, str), free_a(arr_dir);
 			return (NULL);
 		}
 		_strcpy(dirname, arr_dir[i]), _strcat(_strcat(dirname, "/"), firstarg[0]);
@@ -39,15 +39,15 @@ char *findinthepath(char **firstarg)
 			*firstarg = _strdup(dirname);
 			if (*firstarg == NULL)
 			{
-				free_pointer(4, dirname, str, pwd, path), free_arrayofpointer(arr_dir);
+				free_p(4, dirname, str, pwd, path), free_a(arr_dir);
 				return (NULL);
 			}
-			free_pointer(4, dirname, str, pwd, path), free_arrayofpointer(arr_dir);
+			free_p(4, dirname, str, pwd, path), free_a(arr_dir);
 			return (*firstarg);
 		}
-		free_pointer(1, dirname), i++, j = 0;
+		free_p(1, dirname), i++, j = 0;
 	}
-	free_arrayofpointer(arr_dir), free_pointer(3, str, pwd, path);
+	free_a(arr_dir), free_p(3, str, pwd, path);
 	return (NULL);
 }
 
@@ -64,7 +64,7 @@ char *initializepath(char **pwd)
 	path = _strdup(_getenv("PATH"));
 	if (path == NULL)
 	{
-		free_pointer(1, *pwd);
+		free_p(1, *pwd);
 		return (NULL);
 	}
 
