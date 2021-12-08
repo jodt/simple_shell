@@ -15,7 +15,7 @@ int _cd(char **av)
 	if (av[1] == NULL)
 	{
 		if (!_getenv("HOME"))
-			write(1, "non\n", 4);
+			write(1, printerror, _strlen(printerror));
 		else
 		{
 			chdir(_getenv("HOME"));
@@ -39,7 +39,7 @@ int _cd(char **av)
 	else if (av[1] != NULL && av[1] != hyphen)
 	{
 		if (access(av[1], F_OK) == -1)
-			write(1, "non\n", 4);
+			write(1, printerror, _strlen(printerror));
 		else
 		{
 			setenv("OLDPWD", _getenv("PWD"), 1);
