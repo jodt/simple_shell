@@ -15,7 +15,7 @@ int shell_loop(char **argv, int count)
 	if (result == -1)
 	{
 		free_pointer(1, buff);
-		return (1);
+		return (3);
 	}
 	av = fillarguments(buff, " \t");
 	if (av[0] == NULL)
@@ -29,25 +29,32 @@ int shell_loop(char **argv, int count)
 		if (retour == 0 || retour == 2)
 		{
 			free_pointer(1, buff), free_arrayofpointer(av);
-			retour == 0 ? (retour = 0) : (retour = 1);
+			retour == 0 ? (retour = 0) : (retour = 3);
 			return (retour);
 		}
 		if (!(findinthepath(av)))
 		{
 			printerror(argv, count, av), free_pointer(1, buff), free_arrayofpointer(av);
-			return (2);
+			return (errno);
 		}
 		else
 		{
-			processus(argv, av, buff, count);
-			free_pointer(2, *av, buff), free_arrayofpointer(av);
-			return (0);
+			if (processus(argv, av, buff, count) != 0)
+			{
+				free_pointer(2, *av, buff), free_arrayofpointer(av);
+				return (errno);
+			}
+			else
+			{
+				free_pointer(2, *av, buff), free_arrayofpointer(av);
+				return (0);
+			}
 		}
 	}
 	if (processus(argv, av, buff, count) != 0)
 	{
 		free_pointer(1, buff), free_arrayofpointer(av);
-		return (2);
+		return (errno);
 	}
 	free_pointer(1, buff), free_arrayofpointer(av);
 	return (0);
