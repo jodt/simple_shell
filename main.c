@@ -16,6 +16,7 @@ int main(int argc __attribute__((unused)), char **argv)
 		retour = shell_loop(argv, count);
 		if (retour == 2)
 		{
+			count++;
 			id = fork();
 			if (id == -1)
 			{
