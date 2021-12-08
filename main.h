@@ -77,4 +77,6 @@ int _printr(va_list);
 int write_reverse(char *);
 int checkSpecifier(const char *format, int i, va_list arglist);
 int _cd(char **av);
+int _echo(char **av);
+int _help(char **av);
 #endif

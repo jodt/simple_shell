@@ -1,7 +1,5 @@
 #include "main.h"
 
-#define BUF 1000
-
 /**
  * _cd - recreate cd function
  *
