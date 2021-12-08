@@ -10,11 +10,9 @@
 int _cd(char **av)
 {
 	char hyphen[] = "-";
-	char tylde[] = "~";
-	char home[] = "$HOME";
 	char *buff = malloc(sizeof(char) * 1024);
 
-	if (av[1] == NULL || _strcmp(av[1], tylde) == 0 || _strcmp(av[1], home) == 0)
+	if (av[1] == NULL)
 	{
 		if (!_getenv("HOME"))
 			write(1, "non\n", 4);
