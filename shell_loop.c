@@ -17,6 +17,11 @@ int shell_loop(char **argv, int count)
 		free_pointer(1, buff);
 		return (1);
 	}
+	if (_strlen(buff) >= 256)
+	{
+		perror("Error");
+		return (0);
+	}
 	av = fillarguments(buff, " \t");
 	if (av[0] == NULL)
 	{
@@ -35,7 +40,7 @@ int shell_loop(char **argv, int count)
 		if (!(findinthepath(av)))
 		{
 			printerror(argv, count, av), free_pointer(1, buff), free_arrayofpointer(av);
-			return (2);
+			return (errno);
 		}
 		else
 		{
