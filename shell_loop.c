@@ -40,7 +40,7 @@ int shell_loop(char **argv, int count)
 		if (!(findinthepath(av)))
 		{
 			printerror(argv, count, av), free_pointer(1, buff), free_arrayofpointer(av);
-			return (errno);
+			return (2);
 		}
 		else
 		{
