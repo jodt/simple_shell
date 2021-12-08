@@ -13,7 +13,7 @@ int main(int argc __attribute__((unused)), char **argv)
 	signal(SIGINT, handler);
 	while (1)
 	{
-		if (retour == 3)
+		if (retour == 2)
 			break;
 		retour = shell_loop(argv, count);
 		if (retour != 0)
@@ -27,12 +27,11 @@ int main(int argc __attribute__((unused)), char **argv)
 			if (id != 0)
 			{
 				wait(&status);
-				return (retour);
+				return (127);
 			}
 			else
 				continue;
 		}
-
 		count++;
 	}
 	return (0);
