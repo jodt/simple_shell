@@ -10,9 +10,11 @@
 int _cd(char **av)
 {
 	char hyphen[] = "-";
+	char tylde[] = "~";
+	char home[] = "$HOME";
 	char *buff = malloc(sizeof(char) * 1024);
 
-	if (av[1] == NULL)
+	if (av[1] == NULL || _strcmp(av[1], tylde) == 0 || _strcmp(av[1], home) == 0)
 	{
 		setenv("OLDPWD", _getenv("PWD"), 1);
 		chdir("/home/vagrant");
@@ -28,9 +30,16 @@ int _cd(char **av)
 	}
 	else if (av[1] != NULL && av[1] != hyphen)
 	{
-		setenv("OLDPWD", _getenv("PWD"), 1);
-		chdir(av[1]);
-		setenv("PWD", getcwd(buff, sizeof(char) * 1024), 1);
+		if (access(av[1], F_OK) == -1)
+		{
+			write(1, "non\n", 4);
+		}
+		else
+		{
+			setenv("OLDPWD", _getenv("PWD"), 1);
+			chdir(av[1]);
+			setenv("PWD", getcwd(buff, sizeof(char) * 1024), 1);
+		}
 	}
 
 	free(buff);
