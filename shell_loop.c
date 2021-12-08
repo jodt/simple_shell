@@ -9,7 +9,7 @@
 int shell_loop(char **argv, int count)
 {
 	char *buff = NULL, **av = NULL;
-	ssize_t result = 1;
+	ssize_t result = 1, retour;
 
 	result = prompt(&buff), count++;
 	if (result == -1)
@@ -25,8 +25,24 @@ int shell_loop(char **argv, int count)
 	}
 	if (av[0][0] != '/')
 	{
-
-		return (checkcommand(argv, av, buff, count));
+		retour = checkBuiltins(av, buff);
+		if (retour == 0 || retour == 2)
+		{
+			free_pointer(1, buff), free_arrayofpointer(av);
+			retour == 0 ? (retour = 0) : (retour = 1);
+			return (retour);
+		}
+		if (!(findinthepath(av)))
+		{
+			printerror(argv, count, av), free_pointer(1, buff), free_arrayofpointer(av);
+			return (2);
+		}
+		else
+		{
+			processus(argv, av, buff, count);
+			free_pointer(2, *av, buff), free_arrayofpointer(av);
+			return (0);
+		}
 	}
 	if (processus(argv, av, buff, count) != 0)
 	{
