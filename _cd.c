@@ -12,7 +12,7 @@ int _cd(char **av)
 	char hyphen[] = "-";
 	char *buff = malloc(sizeof(char) * 1024);
 
-	if (av[1] == NULL || _strcmp(av[1], "~") == 0)
+	if (av[1] == NULL)
 	{
 		setenv("OLDPWD", _getenv("PWD"), 1);
 		chdir("/home/vagrant");
