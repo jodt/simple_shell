@@ -20,7 +20,7 @@ int _echo(char **av)
 			_printf("%i\n", pid);
 		}
 		else
-			_printf("%s", av[1]);
+			_printf("%s\n", av[1]);
 	}
 	return (0);
 }
