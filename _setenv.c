@@ -14,7 +14,7 @@ int _setenv(const char *name, const char *value, int overwrite)
 	char *variable;
 	int length = _strlen((char *)name) + _strlen((char *)value) + 1;
 
-	if (name == NULL && value == NULL)
+	if (name == NULL || value == NULL || i < 0)
 	{
 		return (-1);
 	}
@@ -43,9 +43,16 @@ int _setenv(const char *name, const char *value, int overwrite)
 		{
 			if (!name[j + 1] && environ[i][j + 1] == '=')
 			{
-				environ[i] = strdup(variable);
-				free(variable);
-				return (0);
+				if (overwrite > 0)
+				{
+					environ[i] = strdup(variable);
+					free(variable);
+					return (0);
+				}
+				else
+				{
+					return (0);
+				}
 			}
 			j++;
 		}
