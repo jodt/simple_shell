@@ -8,7 +8,7 @@
  * Return: 0 success, 1 not found
  */
 
-int checkBuiltins(char **av, char *buff)
+int checkBuiltins(char **av, char *buff, int count)
 {
 
 	if (av && *av && buff)
@@ -22,7 +22,7 @@ int checkBuiltins(char **av, char *buff)
 			return (2);
 		else if (_strcmp("cd", av[0]) == 0 && _strlen(av[0]) == 2)
 		{
-			_cd(av);
+			_cd(av, count);
 			return (0);
 		}
 		else if (_strcmp("help", av[0]) == 0 && _strlen(av[0]) == 4)
