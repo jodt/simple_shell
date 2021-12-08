@@ -9,9 +9,8 @@
 
 int _cd(char **av, int count)
 {
-	char hyphen[] = "-";
+	char hyphen[] = "-", *hsh = "./hsh";
 	char *buff = malloc(sizeof(char) * 1024);
-	char *hsh = "./hsh";
 
 	if (av[1] == NULL)
 	{
