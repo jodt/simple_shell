@@ -7,15 +7,16 @@
  * Return: env change
  */
 
-int _cd(char **av)
+int _cd(char **av, int count)
 {
 	char hyphen[] = "-";
 	char *buff = malloc(sizeof(char) * 1024);
+	char *hsh = "./hsh";
 
 	if (av[1] == NULL)
 	{
 		if (!_getenv("HOME"))
-			write(1, printerror, _strlen(printerror));
+			printerror(&hsh, count, av);
 		else
 		{
 			chdir(_getenv("HOME"));
@@ -39,7 +40,7 @@ int _cd(char **av)
 	else if (av[1] != NULL && av[1] != hyphen)
 	{
 		if (access(av[1], F_OK) == -1)
-			write(1, printerror, _strlen(printerror));
+			printerror(&hsh, count, av);
 		else
 		{
 			setenv("OLDPWD", _getenv("PWD"), 1);
