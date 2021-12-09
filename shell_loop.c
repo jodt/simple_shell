@@ -21,7 +21,7 @@ int shell_loop(char **argv, int count)
 		free_p(1, buff), free_a(av);
 		return (0);
 	}
-	if (av[0][0] != '/')
+	if (av[0][0] != '/' && av[0][0] != '.')
 	{
 		retour = checkBuiltins(av, buff, count);
 		if (retour == 0 || retour == 2)
