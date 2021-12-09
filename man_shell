@@ -20,9 +20,13 @@ It\'s show the ls command use by the passive way
 
 It\'s did the ls command with -l flag
 
-.B
+.B in the ./hsh exit
 
-It\'s did the
+It\'s exit the programme
+
+.B in the ./hsh cd
+
+It\'s change the directory
 
 .SH BUGS
 No known bugs.
